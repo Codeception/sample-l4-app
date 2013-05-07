@@ -3,7 +3,7 @@ Scaffolded CRUD app for Codeception guy.
 ## Setup
 
 - Clone repo
-- `composer install` --dev
+- `composer install --dev`
 - Create database: `l4-module`.
 - Update MySQL config in `app/config/database.php`
 - Command line: run `php artisan migrate --seed`
