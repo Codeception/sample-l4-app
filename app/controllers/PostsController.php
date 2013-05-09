@@ -43,7 +43,7 @@ class PostsController extends BaseController {
      */
     public function store()
     {
-        $input = Input::all();
+        $input = Input::only('title','body');
         $validation = Validator::make($input, Post::$rules);
 
         if ($validation->passes())

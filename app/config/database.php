@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'l4-module',
 			'username'  => 'root',
-			'password'  => '1234',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
