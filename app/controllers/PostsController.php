@@ -98,7 +98,7 @@ class PostsController extends BaseController {
      */
     public function update($id)
     {
-        $input = array_except(Input::all(), '_method');
+        $input = Input::only('title','body');
         $validation = Validator::make($input, Post::$rules);
 
         if ($validation->passes())
