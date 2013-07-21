@@ -3,7 +3,10 @@
 		"laravel/framework": "4.0.*"
 	},
   "require-dev": {
-    "way/generators": "dev-master"
+    "way/generators": "dev-master",
+    "codeception/aspect-mock": "*",
+    "codeception/codeception": "@stable",
+    "lisachenko/go-aop-php": "0.4.x-dev"
   },
 	"autoload": {
 		"classmap": [
