@@ -1,14 +1,9 @@
 <?php
 use Codeception\Util\Stub;
-use AspectMock\test;
+use AspectMock\Test as test;
 
-class UserTest extends \Codeception\TestCase\Test
+class UserTest extends \PHPUnit_Framework_TestCase
 {
-   /**
-    * @var \CodeGuy
-    */
-    protected $codeGuy;
-
 
     protected function _after()
     {

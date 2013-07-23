@@ -6,9 +6,7 @@ include __DIR__.'/../vendor/autoload.php';
 
 $kernel = \AspectMock\Kernel::getInstance();
 $kernel->init([
-    'debug' => true,
-    'cacheDir' => __DIR__.'/../app/storage/cache/aspect/',
-    'includePaths' => [__DIR__.'/../app']
+    'includePaths' => [__DIR__.'/../app/']
 ]);
 
 $app = require_once __DIR__.'/../bootstrap/start.php';
