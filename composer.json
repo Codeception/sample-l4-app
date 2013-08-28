@@ -4,8 +4,8 @@
 	},
   "require-dev": {
     "way/generators": "dev-master",
-    "codeception/aspect-mock": "*",
-    "lisachenko/go-aop-php": "0.4.x-dev"
+    "codeception/aspect-mock": "@stable",
+    "codeception/codeception": "@stable"
   },
 	"autoload": {
 		"classmap": [

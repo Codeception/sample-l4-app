@@ -6,7 +6,10 @@ include __DIR__.'/../vendor/autoload.php';
 
 $kernel = \AspectMock\Kernel::getInstance();
 $kernel->init([
-    'includePaths' => [__DIR__.'/../app/']
+    // 'debug' => true,
+    // 'cacheDir' => '/tmp/l4-sample',
+    'includePaths' => [__DIR__.'/../vendor/laravel', __DIR__.'/../app'],
+    'excludePaths' => [__DIR__]
 ]);
 
 $app = require_once __DIR__.'/../bootstrap/start.php';
