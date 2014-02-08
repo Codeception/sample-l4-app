@@ -4,8 +4,7 @@
 	},
   "require-dev": {
     "way/generators": "dev-master",
-    "codeception/aspect-mock": "@stable",
-    "codeception/codeception": "@stable"
+    "codeception/aspect-mock": "@stable"
   },
 	"autoload": {
 		"classmap": [
