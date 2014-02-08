@@ -4,12 +4,12 @@
 // include_once '/home/davert/Notifier/src/Codeception/Extension/EmailNotifier.php';
 include __DIR__.'/../vendor/autoload.php';
 
-$kernel = \AspectMock\Kernel::getInstance();
-$kernel->init([
-    'debug' => true,
-    'cacheDir' => '/tmp/l4-sample',
-    'includePaths' => [__DIR__.'/../vendor/laravel', __DIR__.'/../app']
-]);
+// $kernel = \AspectMock\Kernel::getInstance();
+// $kernel->init([
+//     'debug' => true,
+//     'cacheDir' => '/tmp/l4-sample',
+//     'includePaths' => [__DIR__.'/../vendor/laravel', __DIR__.'/../app']
+// ]);
 
 $app = require_once __DIR__.'/../bootstrap/start.php';
 

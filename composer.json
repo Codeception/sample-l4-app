@@ -1,6 +1,6 @@
 {
 	"require": {
-		"laravel/framework": "4.0.*"
+		"laravel/framework": "4.1.*"
 	},
   "require-dev": {
     "way/generators": "dev-master",
@@ -30,6 +30,5 @@
 	},
 	"config": {
 		"preferred-install": "dist"
-	},
-	"minimum-stability": "dev"
+	}
 }

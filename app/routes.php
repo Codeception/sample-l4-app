@@ -14,5 +14,10 @@
 
 Route::group(array('before' => 'auth.basic'), function()
 {
-    Route::resource('posts', 'PostsController');
+    Route::resource('posts', 'PostsController');    
+});
+
+Route::get('/back', function()
+{
+	return Redirect::back();
 });
