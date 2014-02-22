@@ -3,8 +3,7 @@
 		"laravel/framework": "4.1.*"
 	},
   "require-dev": {
-    "way/generators": "dev-master",
-    "codeception/aspect-mock": "@stable"
+    "way/generators": "dev-master"
   },
 	"autoload": {
 		"classmap": [
