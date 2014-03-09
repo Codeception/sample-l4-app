@@ -1,6 +1,6 @@
 <?php
 
-class ArticlePage
+class PostsPage
 {
     // include url of current page
     const URL = '/posts';
@@ -29,7 +29,7 @@ class ArticlePage
     {
         $I = $this->testGuy;
 
-        $I->amOnPage(ArticlePage::URL);
+        $I->amOnPage(PostsPage::URL);
         $I->click('Add new post');
         $I->fillField('#title', $title);
         $I->fillField('Body:', $body);

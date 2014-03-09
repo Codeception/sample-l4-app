@@ -1,11 +1,9 @@
 {
 	"require": {
-		"laravel/framework": "4.1.*"
+		"laravel/framework": "4.*",
+        "barryvdh/laravel-ide-helper": "1.*"
 	},
-  "require-dev": {
-    "way/generators": "dev-master"
-  },
-	"autoload": {
+  	"autoload": {
 		"classmap": [
 			"app/commands",
 			"app/controllers",

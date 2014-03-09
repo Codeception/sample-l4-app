@@ -14,11 +14,6 @@
     <body>
 
         <div class="container">
-            @if (Session::has('flash'))
-                <div class="flash alert">
-                    <p>{{ Session::get('flash') }}</p>
-                </div>
-            @endif
 
             @yield('main')
         </div>
