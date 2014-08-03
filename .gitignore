@@ -1,6 +1,6 @@
 /bootstrap/compiled.php
 /vendor
-tests/_log
+tests/_output
 composer.phar
 composer.lock
 .DS_Store

@@ -3,38 +3,62 @@
 class PostsPage
 {
     // include url of current page
-    const URL = '/posts';
+    static $url = '/posts';
 
-     public static function route($param)
+     public static function route($param = '')
      {
-        return static::URL.$param;
+        return static::$url.$param;
      }
 
-    /**
-     * @var TestGuy;
-     */
-    protected $testGuy;
+    static $formFields = ['title' => '#title', 'body' => 'Body:'];
 
-    public function __construct(TestGuy $I)
+    /**
+     * @var FunctionalTester;
+     */
+    protected $tester;
+
+    public function __construct(FunctionalTester $I)
     {
-        $this->testGuy = $I;
+        $this->tester = $I;
     }
 
-    public static function of(TestGuy $I)
+    public static function of(FunctionalTester $I)
     {
         return new static($I);
     }
 
-    public function createArticle($title, $body)
+    public function createPost($fields = array())
     {
-        $I = $this->testGuy;
-
-        $I->amOnPage(PostsPage::URL);
+        $I = $this->tester;
+        $I->amOnPage(self::$url);
         $I->click('Add new post');
-        $I->fillField('#title', $title);
-        $I->fillField('Body:', $body);
+        $this->fillFormFields($fields);
         $I->click('Submit');
         
         return $this;
-    }    
+    }
+
+    public function editPost($id, $fields = array())
+    {
+        $I = $this->tester;
+        $I->amOnPage(self::route("/$id/edit"));
+        $I->see('Edit Post', 'h1');
+        $this->fillFormFields($fields);
+        $I->click('Update');
+    }
+
+    public function deletePost($id)
+    {
+        $I = $this->tester;
+        $I->amOnPage($I->amOnPage(self::route("/$id")));
+        $I->click('Delete');
+    }
+
+    protected function fillFormFields($data)
+    {
+        foreach ($data as $field => $value) {
+            if (!isset(self::$formFields[$field])) throw new \Exception("Form field $field does not exist");
+            $this->tester->fillField(self::$formFields[$field], $value);
+        }
+    }
 }
