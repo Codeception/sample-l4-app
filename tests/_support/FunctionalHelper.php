@@ -5,8 +5,9 @@ namespace Codeception\Module;
 
 class FunctionalHelper extends \Codeception\Module
 {
-    public function _before()
+    public function _beforeSuite($settings = array())
     {
+        $this->debug('MIGRATING BEFORE RUN');
         $I = $this->getModule('Laravel4');
         $artisan = $I->grabService('artisan');
         $artisan->call('migrate');
