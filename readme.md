@@ -27,15 +27,15 @@ Please check out some [good test examples](https://github.com/Codeception/sample
 
 Demonstrates testing of
 
-* CRUD application
-* authentication (by user, credentials, http auth)
+* [CRUD application](https://github.com/Codeception/sample-l4-app/blob/master/tests/functional/PostCrudCest.php)
+* [authentication](https://github.com/Codeception/sample-l4-app/blob/master/tests%2Ffunctional%2FAuthCest.php) (by user, credentials, http auth)
 * usage of session variables
-* routes
+* [routes](https://github.com/Codeception/sample-l4-app/blob/master/tests%2Ffunctional%2FRoutesCest.php)
 * creating and checking records in database
 
 ### CLI Tests
 
-Demonstrates testing of Artisan commands. See `CliHelper` to learn how to perform cleanup between tests, and create cutom `runArtisan` command
+Demonstrates testing of Artisan commands. See [CliHelper]() to learn how to perform cleanup between tests, and create cutom `runArtisan` command
 
 ### API Tests
 
