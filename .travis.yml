@@ -16,7 +16,7 @@ branches:
 before_script:
   - composer install -n --prefer-source
   - "mysql -e 'create database l4_module;'"
-  - php artisan migrate --seed
+  - php artisan migrate --seed -n
   - ./vendor/bin/codecept build
 
 script:
