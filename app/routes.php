@@ -19,6 +19,11 @@ Route::group(array('before' => 'auth.basic'), function()
     Route::resource('posts', 'PostsController');    
 });
 
+Route::group(['prefix' => 'api'], function()
+{
+    Route::resource('posts', 'Api\PostsController');
+});
+
 Route::get('/back', function()
 {
 	return Redirect::back();

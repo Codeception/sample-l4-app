@@ -5,6 +5,7 @@ class CreatePostCest
 {
     public function _before(FunctionalTester $I)
     {
+        $I->haveEnabledFilters();
         $I->amHttpAuthenticated('john@doe.com', 'password');
     }
 
@@ -22,6 +23,7 @@ class CreatePostCest
         $I->seeCurrentUrlEquals(PostsPage::route('/create'));
         $I->seeSessionHasErrors();
         $I->seeSessionErrorMessage(['title' => 'The title field is required.']);
+        $I->seeInSession('errors');
         $I->see('The body field is required.','.error');
         $I->see('The title field is required.','.error');
     }

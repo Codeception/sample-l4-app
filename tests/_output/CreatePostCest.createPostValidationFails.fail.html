@@ -14,15 +14,18 @@
     <body>
 
         <div class="container">
-
+                            <div class="flash alert">
+                    <p>There were validation errors.</p>
+                </div>
+            
             
 <h1>Create Post</h1>
 
-<form method="POST" action="http://localhost/posts" accept-charset="UTF-8"><input name="_token" type="hidden" value="Gm9kj7XjvFSJBfYC8dUKpBNEkR5PDLwvHPRTXTDs">
+<form method="POST" action="http://localhost/posts" accept-charset="UTF-8"><input name="_token" type="hidden" value="ASGwt4pRqNOa55vWfMLSr0ZfEMv8WX68NkZA3oS3">
     <ul>
         <li>
             <label for="title">Title:</label>
-            <input name="title" type="text" id="title">
+            <input name="title" type="text" value="" id="title">
         </li>
 
         <li>
@@ -36,6 +39,9 @@
     </ul>
 </form>
 
+    <ul>
+        <li class="error">The title field is required.</li><li class="error">The body field is required.</li>
+    </ul>
 
         </div>
 
