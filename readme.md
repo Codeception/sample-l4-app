@@ -1,4 +1,6 @@
-# Laravel Application Codeception testing.
+# Sample Laravel Application with Codeception tests.
+
+[![Build Status](https://travis-ci.org/Codeception/sample-l4-app.svg?branch=master)](https://travis-ci.org/Codeception/sample-l4-app)
 
 ### Setup
 
