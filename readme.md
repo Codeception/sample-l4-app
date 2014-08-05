@@ -1,6 +1,6 @@
 # Sample Laravel Application with Codeception tests.
 
-[![Build Status](https://travis-ci.org/Codeception/sample-l4-app.svg?branch=master)](https://travis-ci.org/Codeception/sample-l4-app)
+[![Build Status](https://travis-ci.org/Codeception/sample-l4-app.svg?branch=master)](https://travis-ci.org/Codeception/sample-l4-app) <- see Travis CI integration
 
 ### Setup
 

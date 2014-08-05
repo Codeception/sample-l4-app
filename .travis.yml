@@ -14,8 +14,8 @@ branches:
     - gh-pages
 
 before_script:
+  - "mysql -e 'create database `l4-module`;'"
   - composer install -n --prefer-source
-  - "mysql -e 'create database l4_module;'"
   - php artisan migrate --seed -n
   - ./vendor/bin/codecept build
 
