@@ -11,6 +11,7 @@
 |
 */
 Route::get('/', function() {
+	Log::error('called page index');
    return View::make('hello');
 });
 
