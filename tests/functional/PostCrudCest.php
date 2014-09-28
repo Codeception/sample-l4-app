@@ -7,6 +7,7 @@ class CreatePostCest
     {
         $I->haveEnabledFilters();
         $I->amHttpAuthenticated('john@doe.com', 'password');
+
     }
 
     // tests

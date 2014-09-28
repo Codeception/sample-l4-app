@@ -11,6 +11,12 @@
 |
 */
 Route::get('/', function() {
+   Log::error('hello'.uniqid());
+   return View::make('hello');
+});
+
+Route::get('/flash', function() {
+   Session::flash('message', 'Its a flash');
    return View::make('hello');
 });
 
@@ -28,3 +34,4 @@ Route::get('/back', function()
 {
 	return Redirect::back();
 });
+

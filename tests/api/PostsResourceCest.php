@@ -14,10 +14,10 @@ class PostsResourceCest
         $I->seeResponseCodeIs(200);
         $I->seeResponseIsJson();
         $I->expect('both items are in response');
-        $I->seeResponseContainsJson(['id' => $id, 'title' => 'Game of Thrones']);
-        $I->seeResponseContainsJson(['id' => $id2, 'title' => 'Lord of the Rings']);
+        $I->seeResponseContainsJson(['id' => (string)$id, 'title' => 'Game of Thrones']);
+        $I->seeResponseContainsJson(['id' => (string)$id2, 'title' => 'Lord of the Rings']);
         $I->expect('both items are in root array');
-        $I->seeResponseContainsJson([['id' => $id], ['id' => $id2]]);
+        $I->seeResponseContainsJson([['id' => (string)$id], ['id' => (string)$id2]]);
     }
 
     public function getSinglePost(ApiTester $I)
@@ -26,9 +26,9 @@ class PostsResourceCest
         $I->sendGET($this->endpoint."/$id");
         $I->seeResponseCodeIs(200);
         $I->seeResponseIsJson();
-        $I->seeResponseContainsJson(['id' => $id, 'title' => 'Starwars']);
+        $I->seeResponseContainsJson(['id' => (string)$id, 'title' => 'Starwars']);
         $I->expect('there is no root array in response');
-        $I->dontSeeResponseContainsJson([['id' => $id]]);
+        $I->dontSeeResponseContainsJson([['id' => (string)$id]]);
     }
 
     public function createPost(ApiTester $I)

@@ -1,10 +1,10 @@
 {
 	"require": {
-		"laravel/framework": "4.*",
-        "barryvdh/laravel-ide-helper": "1.*"
+		"laravel/framework": "4.2.*",
+    "barryvdh/laravel-ide-helper": "1.*"
 	},
     "require-dev": {
-        "codeception/codeception": "2.*"
+        
     },
   	"autoload": {
 		"classmap": [
