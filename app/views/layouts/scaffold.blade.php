@@ -12,7 +12,6 @@
     </head>
 
     <body>
-
         <div class="container">
             @if (Session::has('message'))
                 <div class="flash alert">
