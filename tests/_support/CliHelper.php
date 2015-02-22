@@ -8,14 +8,14 @@ class CliHelper extends \Codeception\Module
 {
     protected $dir;
     
-    public function _before()
+    public function _before(\Codeception\TestCase $test)
     {
         $this->dir = codecept_output_dir('sandbox');
         @mkdir($this->dir, 0777);
         chdir($this->dir);
     }
 
-    public function _after()
+    public function _after(\Codeception\TestCase $test)
     {
         \Codeception\Util\FileSystem::deleteDir($this->dir);
     }
