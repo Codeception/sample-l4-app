@@ -5,3 +5,4 @@ composer.phar
 composer.lock
 .DS_Store
 .idea
+/app/database/database.sqlite
