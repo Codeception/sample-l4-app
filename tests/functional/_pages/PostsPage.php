@@ -5,10 +5,10 @@ class PostsPage
     // include url of current page
     static $url = '/posts';
 
-     public static function route($param = '')
-     {
+    public static function route($param = '')
+    {
         return static::$url.$param;
-     }
+    }
 
     static $formFields = ['title' => '#title', 'body' => 'Body:'];
 
