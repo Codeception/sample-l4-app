@@ -8,25 +8,25 @@ class PostsResourceCest
     // tests
     public function getAllPosts(ApiTester $I)
     {
-        $id = $I->haveRecord('posts', ['title' => 'Game of Thrones']);
-        $id2 = $I->haveRecord('posts', ['title' => 'Lord of the Rings']);
+        $id = $I->haveRecord('posts', $this->getPostAttributes(['title' => 'Game of Thrones']));
+        $id2 = $I->haveRecord('posts', $this->getPostAttributes(['title' => 'Lord of the Rings']));
         $I->sendGET($this->endpoint);
         $I->seeResponseCodeIs(200);
         $I->seeResponseIsJson();
         $I->expect('both items are in response');
-        $I->seeResponseContainsJson(['id' => $id, 'title' => 'Game of Thrones']);
-        $I->seeResponseContainsJson(['id' => $id2, 'title' => 'Lord of the Rings']);
+        $I->seeResponseContainsJson(['id' => "$id", 'title' => 'Game of Thrones']);
+        $I->seeResponseContainsJson(['id' => "$id2", 'title' => 'Lord of the Rings']);
         $I->expect('both items are in root array');
-        $I->seeResponseContainsJson([['id' => $id], ['id' => $id2]]);
+        $I->seeResponseContainsJson([['id' => "$id"], ['id' => "$id2"]]);
     }
 
     public function getSinglePost(ApiTester $I)
     {
-        $id = $I->haveRecord('posts', ['title' => 'Starwars']);
+        $id = $I->haveRecord('posts', $this->getPostAttributes(['title' => 'Starwars']));
         $I->sendGET($this->endpoint."/$id");
         $I->seeResponseCodeIs(200);
         $I->seeResponseIsJson();
-        $I->seeResponseContainsJson(['id' => $id, 'title' => 'Starwars']);
+        $I->seeResponseContainsJson(['id' => "$id", 'title' => 'Starwars']);
         $I->expect('there is no root array in response');
         $I->dontSeeResponseContainsJson([['id' => $id]]);
     }
@@ -47,7 +47,7 @@ class PostsResourceCest
 
     public function updatePost(ApiTester $I)
     {
-        $id = $I->haveRecord('posts', ['title' => 'Game of Thrones']);
+        $id = $I->haveRecord('posts', $this->getPostAttributes(['title' => 'Game of Thrones']));
         $I->sendPUT($this->endpoint."/$id", ['title' => 'Lord of Thrones']);
         $I->seeResponseCodeIs(200);
         $I->seeResponseIsJson();
@@ -58,10 +58,20 @@ class PostsResourceCest
 
     public function deletePost(ApiTester $I)
     {
-        $id = $I->haveRecord('posts', ['title' => 'Game of Thrones']);
+        $id = $I->haveRecord('posts', $this->getPostAttributes(['title' => 'Game of Thrones']));
         $I->sendDELETE($this->endpoint."/$id");
         $I->seeResponseCodeIs(200);
         $I->dontSeeRecord('posts', ['id' => $id]);
+    }
+
+    private function getPostAttributes($attributes = [])
+    {
+        return array_merge([
+            'title' => 'Hello Universe',
+            'body' => 'You are so awesome',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime()
+        ], $attributes);
     }
 
 }

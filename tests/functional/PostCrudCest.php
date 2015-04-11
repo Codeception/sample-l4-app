@@ -1,7 +1,7 @@
 <?php
 use \FunctionalTester;
 
-class CreatePostCest
+class PostCrudCest
 {
     public function _before(FunctionalTester $I)
     {
@@ -32,7 +32,7 @@ class CreatePostCest
     public function editPost(FunctionalTester $I)
     {
         $randTitle = "Edited at ".microtime();
-        $id = $I->haveRecord('posts', ['title' => 'Hello Universe', 'body' => 'You are so awesome']);
+        $id = $I->haveRecord('posts', $this->getPostAttributes());
         PostsPage::of($I)->editPost($id, ['title' => 'Edited at '.$randTitle]);
         $I->seeCurrentUrlEquals(PostsPage::route("/$id"));
         $I->see('Show Post', 'h1');
@@ -42,11 +42,21 @@ class CreatePostCest
 
     public function deletePost(FunctionalTester $I)
     {
-        $id = $I->haveRecord('posts', ['title' => 'Hello Universe', 'body' => 'You are so awesome']);
+        $id = $I->haveRecord('posts', $this->getPostAttributes());
         $I->amOnPage(PostsPage::$url);
         $I->see('Hello Universe');
         PostsPage::of($I)->deletePost($id);
         $I->seeCurrentUrlEquals(PostsPage::$url);
         $I->dontSee('Hello Universe');
+    }
+
+    private function getPostAttributes($attributes = [])
+    {
+        return array_merge([
+            'title' => 'Hello Universe',
+            'body' => 'You are so awesome',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime()
+        ], $attributes);
     }
 }

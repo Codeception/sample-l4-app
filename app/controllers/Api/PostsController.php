@@ -1,6 +1,7 @@
 <?php namespace Api;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Request;
+use Response;
 
 class PostsController extends \BaseController {
 
@@ -23,7 +24,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return \Response::json($this->post->all());
+		return Response::json($this->post->all());
 	}
 
 	/**
@@ -33,14 +34,14 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-        $input = \Request::only('title','body');
+        $input = Request::only('title','body');
         $validation = \Validator::make($input, \Post::$rules);
 
         if ($validation->passes()) {
             $post = $this->post->create($input);
             return $post;
         }
-        return \Response::json(['errors' => $validation->errors()->toArray()], 412);
+        return Response::json(['errors' => $validation->errors()->toArray()], 412);
 	}
 
 
@@ -65,15 +66,21 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-        $input = \Request::only('title','body');
+        $input = array_filter(
+            Request::only('title','body'),
+            function($value) {
+                return ! is_null($value);
+            }
+        );
 
-        if (!empty($input))
-        {
+        if (! empty($input)) {
             $post = $this->post->find($id);
             $post->update($input);
+
             return $post;
         }
-        return \Response::json([], 412);
+
+        return Response::json([], 412);
 
 	}
 
