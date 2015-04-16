@@ -5,4 +5,4 @@
 
 class_name: UnitTester
 modules:
-    enabled: [UnitHelper]
+    enabled: [Laravel4, UnitHelper]
