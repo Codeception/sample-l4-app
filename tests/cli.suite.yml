@@ -1,3 +1,0 @@
-class_name: CliTester
-modules:
-    enabled: [Filesystem, Cli, CliHelper]
