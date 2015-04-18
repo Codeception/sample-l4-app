@@ -20,10 +20,7 @@ Route::get('/flash', function() {
    return View::make('hello');
 });
 
-Route::group(array('before' => 'auth.basic'), function()
-{
-    Route::resource('posts', 'PostsController');    
-});
+Route::resource('posts', 'PostsController');
 
 Route::group(['prefix' => 'api'], function()
 {
@@ -34,4 +31,3 @@ Route::get('/back', function()
 {
 	return Redirect::back();
 });
-

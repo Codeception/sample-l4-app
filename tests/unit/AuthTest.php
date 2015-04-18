@@ -8,12 +8,24 @@ class AuthTest extends \Codeception\TestCase\Test
      */
     protected $tester;
 
+    private $userAttributes;
+
+    public function  __construct()
+    {
+        $this->userAttributes= [
+            'email' =>  'john@doe.com',
+            'password' => Hash::make('password'),
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ];
+    }
+
     public function testAuthFacadeReturnsCorrectInformationAfterLoggingIn()
     {
         $this->assertNull(Auth::user());
         $this->assertNull(Auth::id());
 
-        $user = User::first();
+        $user = User::firstOrNew($this->userAttributes);
         $this->tester->amLoggedAs($user);
 
         $this->assertEquals($user, Auth::user());

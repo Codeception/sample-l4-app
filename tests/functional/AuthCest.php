@@ -1,19 +1,17 @@
 <?php
-use \FunctionalTester;
 
 class AuthCest
 {
-    // tests
-    public function loginUsingUserRecord(FunctionalTester $I)
-    {
-        $I->dontSeeAuthentication();
-        $I->amLoggedAs(User::firstOrNew([]));
-    }
+    private $userAttributes;
 
-    public function loginUsingCredentials(FunctionalTester $I)
+    public function  __construct()
     {
-        $I->dontSeeAuthentication();
-        $I->amLoggedAs(['email' => 'john@doe.com', 'password' => 'password']);
+        $this->userAttributes= [
+            'email' =>  'john@doe.com',
+            'password' => Hash::make('password'),
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ];
     }
 
     public function _after(FunctionalTester $I)
@@ -24,4 +22,18 @@ class AuthCest
         $I->logout();
         $I->dontSeeAuthentication();
     }
+
+    public function loginUsingUserRecord(FunctionalTester $I)
+    {
+        $I->dontSeeAuthentication();
+        $I->amLoggedAs(User::firstOrNew($this->userAttributes));
+    }
+
+    public function loginUsingCredentials(FunctionalTester $I)
+    {
+        $I->dontSeeAuthentication();
+        $I->haveRecord('users', $this->userAttributes);
+        $I->amLoggedAs(['email' => 'john@doe.com', 'password' => 'password']);
+    }
+
 }
