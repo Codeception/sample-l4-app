@@ -1,5 +1,4 @@
 <?php
-use \ApiTester;
 
 class PostsResourceCest
 {
@@ -13,10 +12,8 @@ class PostsResourceCest
         $I->sendGET($this->endpoint);
         $I->seeResponseCodeIs(200);
         $I->seeResponseIsJson();
-        $I->expect('both items are in response');
         $I->seeResponseContainsJson(['id' => "$id", 'title' => 'Game of Thrones']);
         $I->seeResponseContainsJson(['id' => "$id2", 'title' => 'Lord of the Rings']);
-        $I->expect('both items are in root array');
         $I->seeResponseContainsJson([['id' => "$id"], ['id' => "$id2"]]);
     }
 
@@ -27,7 +24,6 @@ class PostsResourceCest
         $I->seeResponseCodeIs(200);
         $I->seeResponseIsJson();
         $I->seeResponseContainsJson(['id' => "$id", 'title' => 'Starwars']);
-        $I->expect('there is no root array in response');
         $I->dontSeeResponseContainsJson([['id' => $id]]);
     }
 

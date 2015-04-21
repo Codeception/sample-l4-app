@@ -25,7 +25,7 @@ class AuthTest extends \Codeception\TestCase\Test
         $this->assertNull(Auth::user());
         $this->assertNull(Auth::id());
 
-        $user = User::firstOrNew($this->userAttributes);
+        $user = User::create($this->userAttributes);
         $this->tester->amLoggedAs($user);
 
         $this->assertEquals($user, Auth::user());

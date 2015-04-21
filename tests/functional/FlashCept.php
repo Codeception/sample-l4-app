@@ -2,4 +2,4 @@
 $I = new FunctionalTester($scenario);
 $I->wantTo('see flash message');
 $I->amOnPage('/flash');
-$I->see('Its a flash');
+$I->see("It's a flash", '.flash');

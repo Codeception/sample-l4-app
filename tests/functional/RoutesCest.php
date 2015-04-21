@@ -1,10 +1,6 @@
 <?php
 class RoutesCest
 {
-    public function _before(FunctionalTester $I)
-    {
-        $I->haveDisabledFilters();
-    }
 
     // tests
     public function openPageByRoute(FunctionalTester $I)
@@ -20,4 +16,12 @@ class RoutesCest
         $I->seeCurrentUrlEquals('/posts');
         $I->seeCurrentRouteIs('posts.index');
     }
+
+    public function openRouteWithDomainSpecified(FunctionalTester $I)
+    {
+        $I->amOnRoute('domain');
+        $I->seeResponseCodeIs(200);
+        $I->see('Domain route');
+    }
+
 }

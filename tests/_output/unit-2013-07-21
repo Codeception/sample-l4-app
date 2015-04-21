@@ -1,7 +1,0 @@
-[2013-07-21 01:52:07] UserTest::testMe.INFO: PASSED [] []
-[2013-07-21 01:52:18] UserTest::testMe.ALERT: Failed asserting that two strings are equal. [] []
-[2013-07-21 01:52:18] UserTest::testMe.INFO: # FAILED # [] []
-[2013-07-21 01:52:18] UserTest::testMe.INFO: PASSED [] []
-[2013-07-21 01:52:27] UserTest::testMe.INFO: PASSED [] []
-[2013-07-21 01:52:36] UserTest::testMe.INFO: PASSED [] []
-[2013-07-21 01:53:37] UserTest::testMe.INFO: PASSED [] []

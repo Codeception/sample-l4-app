@@ -1,10 +1,16 @@
 {
+  "repositories": [
+    {
+      "type": "git",
+      "url": "/home/jh/Code/codeception/codeception"
+    }
+  ],
   "require": {
     "laravel/framework": "4.2.*",
     "barryvdh/laravel-ide-helper": "1.*"
   },
   "require-dev": {
-    "codeception/codeception": "~2.0"
+    "codeception/codeception": "dev-laravel4-module"
   },
   "autoload": {
     "classmap": [

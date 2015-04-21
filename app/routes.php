@@ -1,33 +1,18 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
-Route::get('/', function() {
-   Log::error('hello'.uniqid());
-   return View::make('hello');
-});
-
-Route::get('/flash', function() {
-   Session::flash('message', 'Its a flash');
-   return View::make('hello');
-});
+Route::get('/', 'HomeController@index');
+Route::get('flash', 'HomeController@flash');
+Route::get('back', 'HomeController@back');
+Route::get('/secure', ['before' => 'auth', 'uses' => 'HomeController@secure']);
+Route::get('session/{message}', 'HomeController@session');
+Route::get('special-characters', 'HomeController@specialCharacters');
+Route::match(['get', 'post'], 'form', 'HomeController@form');
 
 Route::resource('posts', 'PostsController');
+Route::resource('api/posts', 'Api\PostsController');
 
-Route::group(['prefix' => 'api'], function()
-{
-    Route::resource('posts', 'Api\PostsController');
-});
+Route::controller('auth', 'AuthController');
 
-Route::get('/back', function()
-{
-	return Redirect::back();
-});
+Route::get('domain-route', ['domain' => 'example.com', 'as' => 'domain', 'uses' => function() {
+    return 'Domain route';
+}]);

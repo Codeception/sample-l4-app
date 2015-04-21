@@ -1,14 +1,7 @@
 <?php
-use \FunctionalTester;
 
 class PostCrudCest
 {
-    public function _before(FunctionalTester $I)
-    {
-        $I->haveEnabledFilters();
-        $I->amHttpAuthenticated('john@doe.com', 'password');
-
-    }
 
     // tests
     public function createPost(FunctionalTester $I)
@@ -59,4 +52,5 @@ class PostCrudCest
             'updated_at' => new DateTime()
         ], $attributes);
     }
+
 }

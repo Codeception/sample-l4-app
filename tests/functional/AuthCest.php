@@ -26,7 +26,7 @@ class AuthCest
     public function loginUsingUserRecord(FunctionalTester $I)
     {
         $I->dontSeeAuthentication();
-        $I->amLoggedAs(User::firstOrNew($this->userAttributes));
+        $I->amLoggedAs(User::create($this->userAttributes));
     }
 
     public function loginUsingCredentials(FunctionalTester $I)
@@ -34,6 +34,21 @@ class AuthCest
         $I->dontSeeAuthentication();
         $I->haveRecord('users', $this->userAttributes);
         $I->amLoggedAs(['email' => 'john@doe.com', 'password' => 'password']);
+    }
+
+    public function requireAuthenticationForRoute(FunctionalTester $I)
+    {
+        $I->haveEnabledFilters();
+
+        $I->dontSeeAuthentication();
+        $I->amOnPage('/secure');
+        $I->seeCurrentUrlEquals('/auth/login');
+        $I->see('Login');
+
+        $I->amLoggedAs(User::create($this->userAttributes));
+        $I->amOnPage('/secure');
+        $I->seeResponseCodeIs(200);
+        $I->see('Hello World');
     }
 
 }
