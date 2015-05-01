@@ -16,6 +16,7 @@ branches:
 
 before_script:
   - touch app/database/database.sqlite
+  - composer self-update
   - composer install -n --prefer-source
   - php artisan migrate --seed -n --force
   - ./vendor/bin/codecept build
