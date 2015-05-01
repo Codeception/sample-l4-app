@@ -6,6 +6,9 @@ $I->amOnPage('/auth/register');
 $I->click('button[type=submit]');
 
 $I->seeCurrentUrlEquals('/auth/register');
-
-$I->seeSessionHasErrors();
-$I->seeSessionErrorMessage(['name' =>  'The name field is required.']);
+$I->seeFormHasErrors();
+$I->seeFormErrorMessage('name', 'The name field is required.');
+$I->seeFormErrorMessages(array(
+    'name' => 'The name field is required.',
+    'email' => 'The email field is required.'
+));

@@ -2,6 +2,7 @@
 
 class AuthCest
 {
+
     private $userAttributes;
 
     public function  __construct()

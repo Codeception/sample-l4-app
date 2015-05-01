@@ -2,7 +2,7 @@
   "repositories": [
     {
       "type": "git",
-      "url": "/home/jh/Code/codeception/codeception"
+      "url": "https://github.com/Codeception/Codeception"
     }
   ],
   "require": {
@@ -10,7 +10,7 @@
     "barryvdh/laravel-ide-helper": "1.*"
   },
   "require-dev": {
-    "codeception/codeception": "dev-laravel4-module"
+    "Codeception/Codeception": "2.0.*@dev"
   },
   "autoload": {
     "classmap": [

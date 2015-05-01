@@ -27,6 +27,8 @@ class HomeController extends BaseController {
     public function session($message)
     {
         Session::set('message', $message);
+
+        return Redirect::to('/');
     }
 
     public function form()

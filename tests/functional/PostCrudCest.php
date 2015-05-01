@@ -3,7 +3,6 @@
 class PostCrudCest
 {
 
-    // tests
     public function createPost(FunctionalTester $I)
     {
         PostsPage::of($I)->createPost(['title' => 'Hello world', 'body' => 'And greetings for all']);
@@ -15,11 +14,8 @@ class PostCrudCest
     {
         PostsPage::of($I)->createPost();
         $I->seeCurrentUrlEquals(PostsPage::route('/create'));
-        $I->seeSessionHasErrors();
-        $I->seeSessionErrorMessage(['title' => 'The title field is required.']);
-        $I->seeInSession('errors');
-        $I->see('The body field is required.','.error');
-        $I->see('The title field is required.','.error');
+        $I->see('The body field is required.', '.error');
+        $I->see('The title field is required.', '.error');
     }
 
     public function editPost(FunctionalTester $I)

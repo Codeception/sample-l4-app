@@ -1,7 +1,9 @@
 <?php namespace Api;
 
+use Post;
 use Request;
 use Response;
+use Validator;
 
 class PostsController extends \BaseController {
 
@@ -12,7 +14,12 @@ class PostsController extends \BaseController {
      */
     protected $post;
 
-    public function __construct(\Post $post)
+    /**
+     * Constructor.
+     *
+     * @param Post $post
+     */
+    public function __construct(Post $post)
     {
         $this->post = $post;
     }
@@ -35,15 +42,15 @@ class PostsController extends \BaseController {
 	public function store()
 	{
         $input = Request::only('title','body');
-        $validation = \Validator::make($input, \Post::$rules);
+        $validation = Validator::make($input, Post::$rules);
 
         if ($validation->passes()) {
             $post = $this->post->create($input);
             return $post;
         }
+
         return Response::json(['errors' => $validation->errors()->toArray()], 412);
 	}
-
 
 	/**
 	 * Display the specified resource.
@@ -54,9 +61,7 @@ class PostsController extends \BaseController {
 	public function show($id)
 	{
         return  $this->post->findOrFail($id);
-
 	}
-
 
 	/**
 	 * Update the specified resource in storage.
@@ -81,9 +86,7 @@ class PostsController extends \BaseController {
         }
 
         return Response::json([], 412);
-
 	}
-
 
 	/**
 	 * Remove the specified resource from storage.
@@ -95,6 +98,5 @@ class PostsController extends \BaseController {
 	{
         $this->post->find($id)->delete();
 	}
-
 
 }
