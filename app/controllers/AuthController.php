@@ -7,7 +7,25 @@ class AuthController extends BaseController {
      */
     public function getLogin()
     {
-        return 'Login';
+        return View::make('auth.login');
+    }
+
+    public function postLogin()
+    {
+        $credentials = Request::only('email', 'password');
+        $validator = Validator::make($credentials, [
+            'email' => 'required|email', 'password' => 'required',
+        ]);
+
+        if ($validator->valid()) {
+            if (Auth::attempt($credentials)) {
+                return Redirect::intended('/');
+            }
+        }
+
+        return Redirect::to('auth/login')
+            ->withInput(Request::only('email'))
+            ->withErrors(['email' => 'Invalid credentials']);
     }
 
     /**
@@ -33,6 +51,16 @@ class AuthController extends BaseController {
         }
 
         Auth::login($this->createUser(Request::all()));
+
+        return Redirect::to('/');
+    }
+
+    /**
+     * @return \Illuminate\Http\Response
+     */
+    public function getLogout()
+    {
+        Auth::logout();
 
         return Redirect::to('/');
     }
