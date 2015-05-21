@@ -30,32 +30,32 @@ class AuthCest
         $I->dontSeeAuthentication();
     }
 
-//    public function loginUsingCredentials(FunctionalTester $I)
-//    {
-//        $I->dontSeeAuthentication();
-//        $I->haveRecord('users', $this->userAttributes);
-//        $I->amLoggedAs(['email' => 'john@doe.com', 'password' => 'password']);
-//
-//        $I->amOnPage(PostsPage::$url);
-//        $I->seeCurrentUrlEquals(PostsPage::$url);
-//        $I->seeAuthentication();
-//
-//        $I->logout();
-//        $I->dontSeeAuthentication();
-//    }
+    public function loginUsingCredentials(FunctionalTester $I)
+    {
+        $I->dontSeeAuthentication();
+        $I->haveRecord('users', $this->userAttributes);
+        $I->amLoggedAs(['email' => 'john@doe.com', 'password' => 'password']);
 
-//    public function requireAuthenticationForRoute(FunctionalTester $I)
-//    {
-//        $I->haveEnabledFilters();
-//
-//        $I->amOnPage('/secure');
-//        $I->seeCurrentUrlEquals('/auth/login');
-//        $I->see('Login');
-//
-//        $I->amOnPage('/secure');
-//        $I->amLoggedAs(User::create($this->userAttributes));
-//        $I->seeResponseCodeIs(200);
-//        $I->see('Hello World');
-//    }
+        $I->amOnPage(PostsPage::$url);
+        $I->seeCurrentUrlEquals(PostsPage::$url);
+        $I->seeAuthentication();
+
+        $I->logout();
+        $I->dontSeeAuthentication();
+    }
+
+    public function requireAuthenticationForRoute(FunctionalTester $I)
+    {
+        $I->haveEnabledFilters();
+
+        $I->amOnPage('/secure');
+        $I->seeCurrentUrlEquals('/auth/login');
+        $I->see('Login');
+
+        $I->amLoggedAs(User::create($this->userAttributes));
+        $I->amOnPage('/secure');
+        $I->seeResponseCodeIs(200);
+        $I->see('Hello World');
+    }
 
 }
