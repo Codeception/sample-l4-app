@@ -1,19 +1,16 @@
 actor: Tester
+coverage:
+    enabled: true
+    include:
+        - app/controllers/*
+        - app/models/*
 paths:
     tests: tests
     log: tests/_output
     data: tests/_data
     helpers: tests/_support
 settings:
-
     bootstrap: _bootstrap.php
     suite_class: \PHPUnit_Framework_TestSuite
     colors: true
     memory_limit: 1024M
-modules:
-    config:
-        Db:
-            dsn: ''
-            user: ''
-            password: ''
-            dump: tests/_data/dump.sql

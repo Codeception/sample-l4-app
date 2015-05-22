@@ -1,0 +1,16 @@
+class_name: AcceptanceTester
+coverage:
+    remote: true
+    remote_context_options:
+        http:
+            timeout: 60
+modules:
+    enabled: [AcceptanceHelper, PhpBrowser, Db]
+    config:
+        PhpBrowser:
+            url: http://l4.app
+        Db:
+            dsn: sqlite:app/database/database.sqlite
+            user:
+            password:
+            dump: tests/_data/dump.sql
