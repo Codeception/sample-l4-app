@@ -24,4 +24,10 @@ class RoutesCest
         $I->see('Domain route');
     }
 
+    public function visitARouteWithASubdomain(FunctionalTester $I)
+    {
+        $I->amOnRoute('subdomain', 'l4');
+        $I->see('Subdomain route');
+    }
+
 }

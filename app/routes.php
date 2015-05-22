@@ -14,6 +14,10 @@ Route::resource('users', 'UsersController');
 
 Route::controller('auth', 'AuthController');
 
-Route::get('domain-route', ['domain' => 'example.com', 'as' => 'domain', 'uses' => function() {
+Route::get('domain-route', ['domain' => 'l4.app', 'as' => 'domain', 'uses' => function() {
     return 'Domain route';
+}]);
+
+Route::get('subdomain-route', ['domain' => '{subdomain}.l4.app', 'as' => 'subdomain', 'uses' => function() {
+    return 'Subdomain route';
 }]);
