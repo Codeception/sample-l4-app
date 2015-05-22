@@ -22,4 +22,6 @@ before_script:
   - ./vendor/bin/codecept build
 
 script:
-  - ./vendor/bin/codecept run
+  - ./vendor/bin/codecept run unit
+  - ./vendor/bin/codecept run api
+  - ./vendor/bin/codecept run functional
