@@ -21,6 +21,8 @@ class PostsController extends BaseController {
      */
     public function index()
     {
+        \Log::info('hitting PostsController@index');
+
         $posts = $this->post->all();
 
         return View::make('posts.index', compact('posts'));
