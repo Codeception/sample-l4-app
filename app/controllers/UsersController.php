@@ -7,8 +7,12 @@ class UsersController extends BaseController {
      *
      * @var User
      */
-    protected $post;
+    protected $user;
 
+    /**
+     * Constructor.
+     * @param User $user
+     */
     public function __construct(User $user)
     {
         $this->user = $user;
