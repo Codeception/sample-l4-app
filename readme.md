@@ -49,4 +49,3 @@ Demonstrates functional [testing of API](https://github.com/Codeception/sample-l
 * partial json inclusion in response
 * GET/POST/PUT/DELETE requests
 * check changes inside database
-
