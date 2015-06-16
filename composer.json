@@ -6,8 +6,7 @@
     }
   ],
   "require": {
-    "laravel/framework": "4.2.*",
-    "barryvdh/laravel-ide-helper": "1.*"
+    "laravel/framework": "4.2.*"
   },
   "require-dev": {
     "Codeception/Codeception": "2.0.*@dev"
