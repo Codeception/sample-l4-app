@@ -1,13 +1,15 @@
 <?php
 
-class PostsPage
+namespace Page\Functional;
+
+class Posts
 {
     // include url of current page
     static $url = '/posts';
 
     public static function route($param = '')
     {
-        return static::$url.$param;
+        return static::$url . $param;
     }
 
     static $formFields = ['title' => '#title', 'body' => 'Body:'];
@@ -17,12 +19,12 @@ class PostsPage
      */
     protected $tester;
 
-    public function __construct(FunctionalTester $I)
+    public function __construct(\FunctionalTester $I)
     {
         $this->tester = $I;
     }
 
-    public static function of(FunctionalTester $I)
+    public static function of(\FunctionalTester $I)
     {
         return new static($I);
     }
@@ -34,7 +36,7 @@ class PostsPage
         $I->click('Add new post');
         $this->fillFormFields($fields);
         $I->click('Submit');
-        
+
         return $this;
     }
 
@@ -57,8 +59,11 @@ class PostsPage
     protected function fillFormFields($data)
     {
         foreach ($data as $field => $value) {
-            if (!isset(self::$formFields[$field])) throw new \Exception("Form field $field does not exist");
+            if (!isset(self::$formFields[$field])) {
+                throw new \Exception("Form field $field does not exist");
+            }
             $this->tester->fillField(self::$formFields[$field], $value);
         }
     }
+
 }

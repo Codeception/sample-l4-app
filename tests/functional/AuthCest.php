@@ -1,5 +1,7 @@
 <?php
 
+use Page\Functional\Posts as PostsPage;
+
 class AuthCest
 {
 

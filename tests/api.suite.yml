@@ -1,4 +1,8 @@
 class_name: ApiTester
 modules:
-    enabled: [Laravel4, REST, ApiHelper, Asserts]
-
+    enabled:
+        - \Helper\Api
+        - Asserts
+        - Laravel4
+        - REST:
+            depends: Laravel4

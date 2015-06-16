@@ -1,5 +1,7 @@
 <?php
 
+use Page\Functional\Posts as PostsPage;
+
 class PostCrudCest
 {
 
@@ -20,9 +22,9 @@ class PostCrudCest
 
     public function editPost(FunctionalTester $I)
     {
-        $randTitle = "Edited at ".microtime();
+        $randTitle = "Edited at " . microtime();
         $id = $I->haveRecord('posts', $this->getPostAttributes());
-        PostsPage::of($I)->editPost($id, ['title' => 'Edited at '.$randTitle]);
+        PostsPage::of($I)->editPost($id, ['title' => 'Edited at ' . $randTitle]);
         $I->seeCurrentUrlEquals(PostsPage::route("/$id"));
         $I->see('Show Post', 'h1');
         $I->see($randTitle);

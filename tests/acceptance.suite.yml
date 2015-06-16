@@ -5,11 +5,11 @@ coverage:
         http:
             timeout: 60
 modules:
-    enabled: [AcceptanceHelper, PhpBrowser, Db]
-    config:
-        PhpBrowser:
+    enabled:
+        - \Helper\Acceptance
+        - PhpBrowser:
             url: http://l4.app
-        Db:
+        - Db:
             dsn: sqlite:app/database/database.sqlite
             user:
             password:

@@ -9,7 +9,8 @@
     "laravel/framework": "4.2.*"
   },
   "require-dev": {
-    "Codeception/Codeception": "2.0.*@dev"
+    "Codeception/Codeception": "dev-master",
+    "flow/jsonpath": "~0.2"
   },
   "autoload": {
     "classmap": [

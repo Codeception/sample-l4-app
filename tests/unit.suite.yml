@@ -1,8 +1,5 @@
-# Codeception Test Suite Configuration
-
-# suite for unit (internal) tests.
-# RUN `build` COMMAND AFTER ADDING/REMOVING MODULES.
-
 class_name: UnitTester
 modules:
-    enabled: [Laravel4, UnitHelper]
+    enabled:
+        - \Helper\Unit
+        - Laravel4
