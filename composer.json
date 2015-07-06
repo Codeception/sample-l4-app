@@ -9,7 +9,7 @@
     "laravel/framework": "4.2.*"
   },
   "require-dev": {
-    "Codeception/Codeception": "dev-master",
+    "Codeception/Codeception": "2.1.*",
     "flow/jsonpath": "~0.2"
   },
   "autoload": {
