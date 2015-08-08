@@ -12,3 +12,4 @@
 */
 
 Artisan::add(new GenerateRepository());
+Artisan::add(new CommandThatFiresEvent());
