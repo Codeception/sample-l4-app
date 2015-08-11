@@ -81,8 +81,4 @@ App::down(function()
 */
 
 require __DIR__.'/../filters.php';
-
-Event::forget('artisan-event');
-Event::listen('artisan-event', function($message) {
-	\Codeception\Util\Debug::debug($message);
-});
+require_once __DIR__.'/../listeners.php';
