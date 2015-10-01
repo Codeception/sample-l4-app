@@ -1,4 +1,8 @@
 <?php
+Route::get('', ['domain' => 'example.com', 'as' => 'domain', 'uses' => 'HomeController@domain']);
+Route::get('', ['domain' => 'subdomain.example.com', 'as' => 'subdomain', 'uses' => 'HomeController@subdomain']);
+Route::get('', ['domain' => '{w}.example.com', 'as' => 'wildcard', 'uses' => 'HomeController@wildcard']);
+Route::get('', ['domain' => '{w1}.{w2}.example.com', 'as' => 'multiple-wildcards', 'uses' => 'HomeController@multipleWildcards']);
 
 Route::get('/', 'HomeController@index');
 Route::get('flash', 'HomeController@flash');
@@ -13,11 +17,3 @@ Route::resource('api/posts', 'Api\PostsController');
 Route::resource('users', 'UsersController');
 
 Route::controller('auth', 'AuthController');
-
-Route::get('domain-route', ['domain' => 'l4.app', 'as' => 'domain', 'uses' => function() {
-    return 'Domain route';
-}]);
-
-Route::get('subdomain-route', ['domain' => '{subdomain}.l4.app', 'as' => 'subdomain', 'uses' => function() {
-    return 'Subdomain route';
-}]);
