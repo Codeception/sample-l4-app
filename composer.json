@@ -1,10 +1,4 @@
 {
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/Codeception/Codeception"
-    }
-  ],
   "require": {
     "laravel/framework": "4.2.*"
   },
