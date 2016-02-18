@@ -26,7 +26,7 @@ class RoutesCest
 
     public function visitARouteWithASubdomain(FunctionalTester $I)
     {
-        $I->amOnRoute('subdomain', 'l4');
+        $I->amOnRoute('subdomain');
         $I->see('Subdomain route');
     }
 

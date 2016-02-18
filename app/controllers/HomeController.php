@@ -1,11 +1,12 @@
 <?php
 
-class HomeController extends BaseController {
+class HomeController extends BaseController
+{
 
-	public function index()
-	{
-		return View::make('hello');
-	}
+    public function index()
+    {
+        return View::make('hello');
+    }
 
     public function flash()
     {
@@ -41,6 +42,38 @@ class HomeController extends BaseController {
     public function specialCharacters()
     {
         return View::make('special-characters');
+    }
+
+    /**
+     * @return string
+     */
+    public function domain()
+    {
+        return 'Domain route';
+    }
+
+    /**
+     * @return string
+     */
+    public function subdomain()
+    {
+        return 'Subdomain route';
+    }
+
+    /**
+     * @return string
+     */
+    public function wildcard()
+    {
+        return 'Wildcard route';
+    }
+
+    /**
+     * @return string
+     */
+    public function multipleWildcards()
+    {
+        return 'Multiple wildcards route';
     }
 
 }
