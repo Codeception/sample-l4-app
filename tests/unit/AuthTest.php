@@ -10,7 +10,7 @@ class AuthTest extends \Codeception\TestCase\Test
 
     private $userAttributes;
 
-    public function  __construct()
+    public function  _before()
     {
         $this->userAttributes= [
             'email' =>  'john@doe.com',

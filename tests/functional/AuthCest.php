@@ -11,7 +11,7 @@ class AuthCest
     {
         $this->userAttributes= [
             'email' =>  'john@doe.com',
-            'password' => Hash::make('password'),
+            'password' => \Hash::make('password'),
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ];
